@@ -1,20 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}NewsPaper index
+{% block title %}
+	NewsPaper index
 {% endblock %}
 
 {% block body %}
-<style>
-	body {
-		background-color: #70A99E;
-	}
-	.responsive {
-		width: 100%;
-		height: auto;
-	}
-</style>
 
-<div class="jumbotron" style="background-color:  #70A99E">
+
+	<div style="background-color:  #70A99E">
 
 		<div class="container">
 			{{ form_start(form) }}
@@ -27,7 +20,9 @@
 				</div>
 				<div class="col">
 					<div class="form-group">
-						<button class="btn btn-primary">Rechercher</button>
+						<button class="btn btn-primary">
+							Rechercher
+						</button>
 					</div>
 				</div>
 			</div>
@@ -36,45 +31,17 @@
 		</div>
 	</div>
 
-	<h1>Nos journaux</h1>
+	<h1 class="mb-4 mt-3">
+		Nos journaux
+	</h1>
 
-	<table class="table">
-		<thead>
-<tr class="table-warning">
+	{% include "shared/table.html.twig" with {"titles" : ["title","cote","availability","createdAt","action"], "items": news_papers,"detail": "news_paper_show", "edit": "news_paper_edit"} %}
 
-				
-				<th>Title</th>
-				<th>Cote</th>
-				<th>Disponible</th>
-				<th>Date de création</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for news_paper in news_papers %}
-<tr class="table-warning">
-
-					
-					<td>{{ news_paper.title }}</td>
-					<td>{{ news_paper.cote }}</td>
-					<td>{{ news_paper.availability ? 'Oui' : 'Non' }}</td>
-					<td>{{ news_paper.createdAt ? news_paper.createdAt|date('d-m-Y') : '' }}</td>
-					<td>
-						<a class="btn btn-primary"href="{{ path('news_paper_show', {'id': news_paper.id}) }}">show</a>
-						{% if is_granted('ROLE_VOLONTEER') %}
-							<a class="btn btn-success" href="{{ path('news_paper_edit', {'id': 
-							news_paper.id}) }}">edit</a>
-						{% endif %}
-						
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="7">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-{% if is_granted('ROLE_VOLONTEER') %}
-	<a class="btn btn-warning" href="{{ path('news_paper_new') }}">Create new</a>
-{% endif %}
+	<div class="mb-5 mt-3">
+		{% if is_granted('ROLE_VOLONTEER') %}
+			<a class="btn btn-warning" href="{{ path('news_paper_new') }}">
+				Create new
+			</a>
+		{% endif %}
+	</div>
 {% endblock %}

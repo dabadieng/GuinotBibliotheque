@@ -16,9 +16,9 @@
 		}
 	</style>
 
-	<div class="container" style="background-color: #70A99E">
-		<h1 class="display-3 mt-3">
-			Bienvenue sur bibliothèque Guinot!
+	<div  style="background-color: #70A99E mb-10">
+		<h1 class="display-3 mt-15 mb-5">
+			Bienvenue sur bibliothèque Guinot! 
 		</h1>
 		{% if not app.user %}
 			<a type="button" class="btn btn-warning btn-lg" style=" position: relative; float: right;" href="{{path('app_login')}}">
@@ -48,7 +48,7 @@
 		</p>
 	</div>
 
-	<div class="container">
+	
 		<div class="example-wrapper">
 			{% if app.user %}
 				<h1>
@@ -75,5 +75,5 @@
 
 			{% endif %}
 		</div>
-	</div>
+	
 {% endblock %}

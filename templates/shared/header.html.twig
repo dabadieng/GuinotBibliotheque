@@ -1,10 +1,12 @@
-<nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">Guinot Bibliotheque</a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">
+		Guinot Bibliotheque
+	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-<div class="collapse navbar-collapse" id="navbarColor02">
+	<div class="collapse navbar-collapse" id="navbarColor02">
 
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
@@ -65,27 +67,17 @@
 						</a>
 					</li>
 				{% else %}
-					<li class="nav-item">
+					<li class="nav-item ml-auto">
 						<a class="nav-link" href="{{path('account_show', {'id':app.user.id})}}">
 							Mon Compte
 						</a>
 					</li>
 				{% endif %}
-
-
-			{% else %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{path('app_login')}}">
-						Connexion
-					</a>
-				</li>
-
-
 			{% endif %}
 
 
 		</ul>
-		
+
 	</div>
 </nav>
 {% for label, messages in app.flashes %}

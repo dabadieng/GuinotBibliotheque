@@ -5,38 +5,23 @@
 {% block body %}
     <h1>CDRom</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ c_d_rom.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ c_d_rom.title }}</td>
-            </tr>
-            <tr>
-                <th>Cote</th>
-                <td>{{ c_d_rom.cote }}</td>
-            </tr>
-            <tr>
-                <th>Availability</th>
-                <td>{{ c_d_rom.availability ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ c_d_rom.picture }}</td>
-            </tr>
-            <tr>
-                <th>Authtor</th>
-                <td>{{ c_d_rom.authtor }}</td>
-            </tr>
-            <tr>
-                <th>Bail</th>
-                <td>{{ c_d_rom.bail }}</td>
-            </tr>
-        </tbody>
-    </table> 
+    
+            <dl class="row">
+               <dt class="col-2">Id</dt>
+                <dd class="col-10">{{ c_d_rom.id }}</dd>
+               <dt class="col-2">Title</dt>
+                <dd class="col-10">{{ c_d_rom.title }}</dd>
+               <dt class="col-2">Cote</dt>
+                <dd class="col-10">{{ c_d_rom.cote }}</dd>
+               <dt class="col-2">Availability</dt>
+                <dd class="col-10">{{ c_d_rom.availability ? 'Yes' : 'No' }}</dd>
+               <dt class="col-2">Picture</dt>
+                <dd class="col-10">{{ c_d_rom.picture }}</dd>
+               <dt class="col-2">Authtor</dt>
+                <dd class="col-10">{{ c_d_rom.authtor }}</dd>
+               <dt class="col-2">Bail</dt>
+                <dd class="col-10">{{ c_d_rom.bail }}</dd>
+            </dl>
 
     <a href="{{ path('CD_index') }}">back to list</a>
 
